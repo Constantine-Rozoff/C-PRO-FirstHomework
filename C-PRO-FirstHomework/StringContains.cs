@@ -2,5 +2,8 @@
 
 public class StringContains
 {
-    
+    public static bool IsContainString(string mainString, string subString)
+    {
+        return mainString.Contains(subString);
+    }
 }

@@ -43,5 +43,12 @@ internal class AlphabetChars
         {
             Console.WriteLine(city);
         }
+        
+        //Task 3
+        string mainString = "London, Paris, Rome";
+        string subString = "Rome";
+
+        bool doesMainStringContainSubString = StringContains.IsContainString(mainString, subString);
+        Console.WriteLine(doesMainStringContainSubString);
     }
 }
