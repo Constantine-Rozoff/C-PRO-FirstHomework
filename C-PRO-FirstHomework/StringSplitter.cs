@@ -6,7 +6,7 @@ public class StringSplitter
     {
         int position;
         int count = 0;
-        string[] splittedString = new string[10];
+        string[] splittedString = new string[3];
         do
         {
             position = line.IndexOf(symbol, StringComparison.Ordinal);

@@ -2,20 +2,12 @@ namespace C_PRO_FirstHomework;
 
 internal class AlphabetChars
 {
-    public static void Main(string[] args)
+    public static void GetLetterRowNumberAndChangeCase(char[] alphabet, char letter)
     {
-        //Task 1
-        char[] alphabet =
-        {
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
-            'x', 'y', 'z'
-        };
+        Console.WriteLine("Selected letter is: " + letter);
 
-        char selectedLetter = 'g';
-        Console.WriteLine("Selected letter is: " + selectedLetter);
-
-        int letterPosition = Array.IndexOf(alphabet, selectedLetter);
-        Console.WriteLine("Letter position in alphabet is: " + (Array.IndexOf(alphabet, selectedLetter) + 1));
+        int letterPosition = Array.IndexOf(alphabet, letter);
+        Console.WriteLine("Letter position in alphabet is: " + (Array.IndexOf(alphabet, letter) + 1));
         
         string a = alphabet[letterPosition].ToString();
         
@@ -31,24 +23,5 @@ internal class AlphabetChars
         alphabet[letterPosition] = char.Parse(a);
         
         Console.WriteLine("{0}", string.Join(", ", alphabet));
-        
-        
-        //Task 2
-        string cities = "London, Paris, Rome";
-        string symbol = ",";
-
-        string[] splittedCities = StringSplitter.SplitLine(cities, symbol);
-
-        foreach (var city in splittedCities)
-        {
-            Console.WriteLine(city);
-        }
-        
-        //Task 3
-        string mainString = "London, Paris, Rome";
-        string subString = "Rome";
-
-        bool doesMainStringContainSubString = StringContains.IsContainString(mainString, subString);
-        Console.WriteLine(doesMainStringContainSubString);
     }
 }
