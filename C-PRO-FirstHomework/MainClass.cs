@@ -35,14 +35,17 @@ public class MainClass
         Console.WriteLine(doesMainStringContainSubString);
         
         //Task 4
-        int number = 303;
+        int number = 313;
         NumberReader.Reader(number);
+        
+        //Task 5
+        int a = 5;
+        int b = 2;
 
-        // Console.WriteLine(number % 100); // tens
-        // Console.WriteLine(number % 10); // units
-        // Console.WriteLine(number % 1);
-        // Console.WriteLine(number / 100); // Hundreds
-        // Console.WriteLine(number / 10);
-        // Console.WriteLine(number / 1);
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        Console.WriteLine("a = " + a + ", " + "b = " + b);
     }
 }
