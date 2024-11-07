@@ -31,12 +31,20 @@ public class MainClass
         string mainString = "London, Paris, Rome";
         string subString = "Rome";
 
-        bool doesMainStringContainSubString = StringContains.IsContainString(mainString, subString);
-        Console.WriteLine(doesMainStringContainSubString);
+        bool doesMainStringContainSubString = StringContains.ContainsSubstring(mainString, subString);
+        
+        if (doesMainStringContainSubString)
+        {
+            Console.WriteLine("Does main string contain substring: yes!");
+        }
+        else
+        {
+            Console.WriteLine("Does main string contain substring: no!");
+        }
         
         //Task 4
         int number = 313;
-        NumberReader.Reader(number);
+        NumberReader.ReadNumber(number);
         
         //Task 5
         int a = 5;

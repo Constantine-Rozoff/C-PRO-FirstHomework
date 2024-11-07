@@ -2,12 +2,19 @@
 
 public class NumberReader
 {
-    public static void Reader(int number)
+    public static void ReadNumber(int number)
+    {
+        string result1 = ReadHundreds(number);
+        string result2 = ReadTens(number);
+        string result3 = ReadOnes(number);
+        
+        Console.WriteLine($"{result1} " + $"{result2} " + $"{result3}");
+    }
+    
+    private static string ReadHundreds(int number)
     {
         string result1 = "";
-        string result2 = "";
-        string result3 = "";
-        
+
         switch (number / 100)
         {
             case <= 0:
@@ -54,6 +61,13 @@ public class NumberReader
                 Console.WriteLine("Invalid value");
                 break;
         }
+
+        return result1;
+    }
+
+    private static string ReadTens(int number)
+    {
+        string result2 = "";
         
         switch (number % 100)
         {
@@ -146,6 +160,14 @@ public class NumberReader
                 break;
         }
 
+        return result2;
+    }
+
+    private static string ReadOnes(int number)
+    {
+        string result3 = "";
+
+        
         if ((number % 100) < 10 || (number % 100) >= 20)
         {
             switch (number % 10)
@@ -195,7 +217,7 @@ public class NumberReader
                     break;
             }
         }
-        
-        Console.WriteLine($"{result1} " + $"{result2} " + $"{result3}");
+
+        return result3;
     }
 }

@@ -9,18 +9,14 @@ internal class AlphabetChars
         int letterPosition = Array.IndexOf(alphabet, letter);
         Console.WriteLine("Letter position in alphabet is: " + (Array.IndexOf(alphabet, letter) + 1));
         
-        string a = alphabet[letterPosition].ToString();
-        
-        if (a.All(char.IsUpper))
+        if (char.IsUpper(alphabet[letterPosition]))
         {
-            a = a.ToLower();
+            alphabet[letterPosition] = char.ToLower(alphabet[letterPosition]);
         }
         else
         {
-            a = a.ToUpper();
+            alphabet[letterPosition] = char.ToUpper(alphabet[letterPosition]);
         }
-        
-        alphabet[letterPosition] = char.Parse(a);
         
         Console.WriteLine("{0}", string.Join(", ", alphabet));
     }

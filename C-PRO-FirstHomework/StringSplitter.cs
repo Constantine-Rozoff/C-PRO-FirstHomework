@@ -6,7 +6,9 @@ public class StringSplitter
     {
         int position;
         int count = 0;
-        string[] splittedString = new string[3];
+        int separatorCount = line.Count(c => c == ',');
+        string[] splittedStringArray = new string[separatorCount + 1];
+        
         do
         {
             position = line.IndexOf(symbol, StringComparison.Ordinal);
@@ -15,17 +17,17 @@ public class StringSplitter
             {
                 string city = line.Substring(0, position);
 
-                splittedString[count] = city;
+                splittedStringArray[count] = city;
                 count++;
             
                 line = line.Substring(position + 2);
             }
             else
             {
-                splittedString[count] = line;
+                splittedStringArray[count] = line;
             }
         } while (position > 0);
         
-        return splittedString;
+        return splittedStringArray;
     }
 }
