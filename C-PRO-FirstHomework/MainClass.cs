@@ -80,5 +80,11 @@ public class MainClass
         string[] prohibitedWords = { "Man" };
         
         StringFilter.FilterString(text, prohibitedWords);
+        
+        //Task 3
+
+        string randomSymbols = SymbolGenerator.RandomSymbolGenerator(3);
+
+        Console.WriteLine(randomSymbols);
     }
 }
