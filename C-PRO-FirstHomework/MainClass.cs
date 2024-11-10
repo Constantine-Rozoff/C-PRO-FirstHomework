@@ -73,5 +73,12 @@ public class MainClass
         {
             Console.WriteLine(reversedArray[i]);
         }
+        
+        //Task 2
+
+        string text = "Hello! How are you doing, man";
+        string[] prohibitedWords = { "Man" };
+        
+        StringFilter.FilterString(text, prohibitedWords);
     }
 }
