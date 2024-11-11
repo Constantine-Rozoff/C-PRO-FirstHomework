@@ -65,7 +65,6 @@ public class MainClass
         Console.WriteLine("----------------------------------------");
 
         //Task 1
-        
         int[] numbers = [1, 2, 3, 4, 5];
         int[] reversedArray = ReverseArray(numbers);
 
@@ -75,31 +74,30 @@ public class MainClass
         }
         
         //Task 2
-
         string text = "Hello! How are you doing, man";
         string[] prohibitedWords = { "Man" };
         
         StringFilter.FilterString(text, prohibitedWords);
         
         //Task 3
-
         string randomSymbols = SymbolGenerator.RandomSymbolGenerator(3);
 
         Console.WriteLine(randomSymbols);
         
         //Task 4
-        
         int n = 5; 
         int maxValue = 50;
 
         int[] uniqueRandomNumbers = 
             ArrayWithSkippedElement
-            .GetRandomNumberArray(n, maxValue);
+                .GetRandomNumberArray(n, maxValue);
         
         ArrayWithSkippedElement
-            .RemoveRandomArrayElement(uniqueRandomNumbers);
+                .RemoveRandomArrayElement(uniqueRandomNumbers);
 
-        int holeIndex = ArrayWithSkippedElement.HoleSeeker(uniqueRandomNumbers);
+        int holeIndex = 
+            ArrayWithSkippedElement
+                .HoleSeeker(uniqueRandomNumbers);
 
         Console.WriteLine("Unique Random Numbers:");
         foreach (int item in uniqueRandomNumbers)
@@ -108,5 +106,16 @@ public class MainClass
         }
 
         Console.WriteLine("Hole is element number " + (holeIndex + 1));
+        
+        //Task 5
+        int dnaLength = 50;
+        string dnaChain = DNA.GetDnaAsString(dnaLength);
+        Console.WriteLine(dnaChain);
+
+        byte[]dnaAsBytes = DNA.CompressDna(dnaChain);
+        Console.WriteLine(BitConverter.ToString(dnaAsBytes));
+
+        string dna = DNA.DecompressDna(dnaAsBytes);
+        Console.WriteLine(dna);
     }
 }
