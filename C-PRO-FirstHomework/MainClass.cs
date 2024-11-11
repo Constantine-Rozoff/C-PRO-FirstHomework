@@ -86,5 +86,27 @@ public class MainClass
         string randomSymbols = SymbolGenerator.RandomSymbolGenerator(3);
 
         Console.WriteLine(randomSymbols);
+        
+        //Task 4
+        
+        int n = 5; 
+        int maxValue = 50;
+
+        int[] uniqueRandomNumbers = 
+            ArrayWithSkippedElement
+            .GetRandomNumberArray(n, maxValue);
+        
+        ArrayWithSkippedElement
+            .RemoveRandomArrayElement(uniqueRandomNumbers);
+
+        int holeIndex = ArrayWithSkippedElement.HoleSeeker(uniqueRandomNumbers);
+
+        Console.WriteLine("Unique Random Numbers:");
+        foreach (int item in uniqueRandomNumbers)
+        {
+            Console.WriteLine(item);
+        }
+
+        Console.WriteLine("Hole is element number " + (holeIndex + 1));
     }
 }
