@@ -117,5 +117,17 @@ public class MainClass
 
         string dna = DNA.DecompressDna(dnaAsBytes);
         Console.WriteLine(dna);
+        
+        //Task 6
+        string originalText = "String for encryption";
+        byte key = 0x01; 
+
+        Console.WriteLine("Original Text: " + originalText);
+
+        byte[] encryptedBytes = EncryptDecrypt.Encrypt(originalText, key);
+        Console.WriteLine("Encrypted text: " + BitConverter.ToString(encryptedBytes));
+
+        string decryptedText = EncryptDecrypt.Decrypt(encryptedBytes, key);
+        Console.WriteLine("Decrypted Text: " + decryptedText);
     }
 }
