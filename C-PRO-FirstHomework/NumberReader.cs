@@ -4,11 +4,7 @@ public class NumberReader
 {
     public static void ReadNumber(int number)
     {
-        string result1 = ReadHundreds(number);
-        string result2 = ReadTens(number);
-        string result3 = ReadOnes(number);
-        
-        Console.WriteLine($"{result1} " + $"{result2} " + $"{result3}");
+        Console.WriteLine(ReadHundreds(number) + " " + ReadTens(number) + " " + ReadOnes(number));
     }
     
     private static string ReadHundreds(int number)
