@@ -11,6 +11,7 @@ public class MainClass
         private const string Cities = "London, Paris, Rome";
         private const string Separator = ",";
         private const string SubString = "Rome";
+        private const string DnaChain = "ATGAGGCCCTCCACTCAGGACGGATTTCCCACATCAGTAGGAAAATAGTC";
         private int[] numbers = [1, 2, 3, 4, 5];
         
 
@@ -31,6 +32,12 @@ public class MainClass
         
         [Benchmark]
         public int[] MyReverse() => ReverseArray(numbers);
+        
+        [Benchmark]
+        public string DecompressDna() => DNA.DecompressDna(DNA.CompressDna(DnaChain));
+        
+        [Benchmark]
+        public string MyDecompressDna() => DNA.MyDecompressDna(DNA.MyCompressDna(DnaChain));
     }
     
     public static void Main(string[] args)
@@ -142,11 +149,17 @@ public class MainClass
         string dnaChain = DNA.GetDnaAsString(dnaLength);
         Console.WriteLine(dnaChain);
 
-        byte[]dnaAsBytes = DNA.CompressDna(dnaChain);
+        byte[] dnaAsBytes = DNA.CompressDna(dnaChain);
         Console.WriteLine(BitConverter.ToString(dnaAsBytes));
+        
+        byte[] myDnaAsBytes = DNA.MyCompressDna(dnaChain);
+        Console.WriteLine(BitConverter.ToString(myDnaAsBytes));
 
         string dna = DNA.DecompressDna(dnaAsBytes);
         Console.WriteLine(dna);
+        
+        string myDna = DNA.MyDecompressDna(myDnaAsBytes);
+        Console.WriteLine(myDna);
         
         //Task 6
         string originalText = "String for encryption";
