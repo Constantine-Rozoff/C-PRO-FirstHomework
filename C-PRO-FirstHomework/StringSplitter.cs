@@ -1,7 +1,10 @@
-﻿namespace C_PRO_FirstHomework;
+﻿using BenchmarkDotNet.Attributes;
+
+namespace C_PRO_FirstHomework;
 
 public class StringSplitter
 {
+    [Benchmark]
     public static string[]  SplitLine(string line, string symbol)
     {
         int position;

@@ -1,12 +1,49 @@
-﻿using System.Threading.Channels;
+﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
 using static C_PRO_FirstHomework.ArrayReverse;
 
 namespace C_PRO_FirstHomework;
 
 public class MainClass
 {
+    public class PerformanceTest
+    {
+        private const string Cities = "London, Paris, Rome";
+        private const string Separator = ",";
+        private const string SubString = "Rome";
+        private const string DnaChain = "ATGAGGCCCTCCACTCAGGACGGATTTCCCACATCAGTAGGAAAATAGTC";
+        private int[] numbers = [1, 2, 3, 4, 5];
+        
+
+        [Benchmark]
+        public string[] BuiltInSplit() => Cities.Split(Separator);
+        
+        [Benchmark]
+        public string[] MySplit() => StringSplitter.SplitLine(Cities, Separator);
+        
+        [Benchmark]
+        public bool BuiltInContains() => Cities.Contains(SubString);
+        
+        [Benchmark]
+        public bool MyContains() => StringContains.ContainsSubstring(Cities, SubString);
+        
+        [Benchmark]
+        public void BuiltInReverse() => Array.Reverse(numbers);
+        
+        [Benchmark]
+        public int[] MyReverse() => ReverseArray(numbers);
+        
+        [Benchmark]
+        public string DecompressDna() => DNA.DecompressDna(DNA.CompressDna(DnaChain));
+        
+        [Benchmark]
+        public string MyDecompressDna() => DNA.MyDecompressDna(DNA.MyCompressDna(DnaChain));
+    }
+    
     public static void Main(string[] args)
     {
+        var summary = BenchmarkRunner.Run<PerformanceTest>();
+        
         //Homework 1
         //Task 1
         char[] alphabet =
@@ -24,7 +61,7 @@ public class MainClass
         //Task 2
         string cities = "London, Paris, Rome";
         string symbol = ",";
-
+        
         string[] splittedCities = StringSplitter.SplitLine(cities, symbol);
 
         foreach (var city in splittedCities)
@@ -67,7 +104,7 @@ public class MainClass
         //Task 1
         int[] numbers = [1, 2, 3, 4, 5];
         int[] reversedArray = ReverseArray(numbers);
-
+        
         for (int i = 0; i < reversedArray.Length; i++)
         {
             Console.WriteLine(reversedArray[i]);
@@ -112,11 +149,17 @@ public class MainClass
         string dnaChain = DNA.GetDnaAsString(dnaLength);
         Console.WriteLine(dnaChain);
 
-        byte[]dnaAsBytes = DNA.CompressDna(dnaChain);
+        byte[] dnaAsBytes = DNA.CompressDna(dnaChain);
         Console.WriteLine(BitConverter.ToString(dnaAsBytes));
+        
+        byte[] myDnaAsBytes = DNA.MyCompressDna(dnaChain);
+        Console.WriteLine(BitConverter.ToString(myDnaAsBytes));
 
         string dna = DNA.DecompressDna(dnaAsBytes);
         Console.WriteLine(dna);
+        
+        string myDna = DNA.MyDecompressDna(myDnaAsBytes);
+        Console.WriteLine(myDna);
         
         //Task 6
         string originalText = "String for encryption";
